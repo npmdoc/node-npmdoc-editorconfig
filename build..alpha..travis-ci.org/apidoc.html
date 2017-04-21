@@ -1,0 +1,984 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+    >editorconfig (v0.13.2)</a>
+</h1>
+<h4>EditorConfig File Locator and Interpreter for Node.js</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.editorconfig">module editorconfig</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.fnmatch">
+            function <span class="apidocSignatureSpan">editorconfig.</span>fnmatch
+            <span class="apidocSignatureSpan">(p, pattern, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.parse">
+            function <span class="apidocSignatureSpan">editorconfig.</span>parse
+            <span class="apidocSignatureSpan">(filepath, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.parseFromFiles">
+            function <span class="apidocSignatureSpan">editorconfig.</span>parseFromFiles
+            <span class="apidocSignatureSpan">(filepath, files, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.parseFromFilesSync">
+            function <span class="apidocSignatureSpan">editorconfig.</span>parseFromFilesSync
+            <span class="apidocSignatureSpan">(filepath, files, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.parseSync">
+            function <span class="apidocSignatureSpan">editorconfig.</span>parseSync
+            <span class="apidocSignatureSpan">(filepath, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.version">
+            function <span class="apidocSignatureSpan">editorconfig.</span>version
+            <span class="apidocSignatureSpan">(version)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">editorconfig.</span>ini</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">editorconfig.</span>version.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.editorconfig.fnmatch">module editorconfig.fnmatch</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.fnmatch.fnmatch">
+            function <span class="apidocSignatureSpan">editorconfig.</span>fnmatch
+            <span class="apidocSignatureSpan">(p, pattern, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.fnmatch.Minimatch">
+            function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>Minimatch
+            <span class="apidocSignatureSpan">(pattern, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.fnmatch.braceExpand">
+            function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>braceExpand
+            <span class="apidocSignatureSpan">(pattern, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.fnmatch.defaults">
+            function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>defaults
+            <span class="apidocSignatureSpan">(def)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.fnmatch.filter">
+            function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>filter
+            <span class="apidocSignatureSpan">(pattern, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.fnmatch.makeRe">
+            function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>makeRe
+            <span class="apidocSignatureSpan">(pattern, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.fnmatch.match">
+            function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>match
+            <span class="apidocSignatureSpan">(list, pattern, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.fnmatch.monkeyPatch">
+            function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>monkeyPatch
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>GLOBSTAR</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>cache</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.editorconfig.ini">module editorconfig.ini</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.ini.parse">
+            function <span class="apidocSignatureSpan">editorconfig.ini.</span>parse
+            <span class="apidocSignatureSpan">(file, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.ini.parseString">
+            function <span class="apidocSignatureSpan">editorconfig.ini.</span>parseString
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.ini.parseSync">
+            function <span class="apidocSignatureSpan">editorconfig.ini.</span>parseSync
+            <span class="apidocSignatureSpan">(file)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.editorconfig.version">module editorconfig.version</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.version.version">
+            function <span class="apidocSignatureSpan">editorconfig.</span>version
+            <span class="apidocSignatureSpan">(version)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.editorconfig.version.prototype">module editorconfig.version.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.version.prototype.gte">
+            function <span class="apidocSignatureSpan">editorconfig.version.prototype.</span>gte
+            <span class="apidocSignatureSpan">(other)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.editorconfig.version.prototype.toString">
+            function <span class="apidocSignatureSpan">editorconfig.version.prototype.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.editorconfig" id="apidoc.module.editorconfig">module editorconfig</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.fnmatch" id="apidoc.element.editorconfig.fnmatch">
+        function <span class="apidocSignatureSpan">editorconfig.</span>fnmatch
+        <span class="apidocSignatureSpan">(p, pattern, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function minimatch(p, pattern, options) {
+  if (typeof pattern !== &#x22;string&#x22;) {
+    throw new TypeError(&#x22;glob pattern string required&#x22;)
+  }
+
+  if (!options) options = {}
+
+      // shortcut: comments match nothing.
+  if (!options.nocomment &#x26;&#x26; pattern.charAt(0) === &#x22;#&#x22;) {
+    return false
+  }
+
+  // &#x22;&#x22; only matches &#x22;&#x22;
+  if (pattern.trim() === &#x22;&#x22;) return p === &#x22;&#x22;
+
+  return new Minimatch(pattern, options).match(p)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.parse" id="apidoc.element.editorconfig.parse">
+        function <span class="apidocSignatureSpan">editorconfig.</span>parse
+        <span class="apidocSignatureSpan">(filepath, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (filepath, options) {
+  return new Promise (function (resolve, reject) {
+    filepath = path.resolve(filepath);
+    options = processOptions(options, filepath);
+    var filepaths = getConfigFileNames(filepath, options);
+    var files = readConfigFiles(filepaths);
+    resolve(parseFromFiles(filepath, files, options));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Example:
+
+```js
+var editorconfig = require(&#x27;editorconfig&#x27;);
+var path = require(&#x27;path&#x27;);
+var filePath = path.join(__dirname, &#x27;/sample.js&#x27;);
+var promise = editorconfig.<span class="apidocCodeKeywordSpan">parse</span>(filePath);
+promise.then(function onFulfilled(result) {
+console.log(result);
+});
+
+/*
+{
+  indent_style: &#x27;space&#x27;,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.parseFromFiles" id="apidoc.element.editorconfig.parseFromFiles">
+        function <span class="apidocSignatureSpan">editorconfig.</span>parseFromFiles
+        <span class="apidocSignatureSpan">(filepath, files, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseFromFiles = function (filepath, files, options) {
+  return new Promise (function (resolve, reject) {
+    filepath = path.resolve(filepath);
+    options = processOptions(options, filepath);
+    resolve(parseFromFiles(filepath, files, options));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var configs = [
+{
+  name: configPath,
+  contents: fs.readFileSync(configPath, &#x27;utf8&#x27;)
+}
+];
+var filePath = path.join(__dirname, &#x27;/sample.js&#x27;);
+var promise = editorconfig.<span class="apidocCodeKeywordSpan">parseFromFiles</span>(filePath, configs);
+promise.then(function onFulfilled(result) {
+console.log(result)
+});
+
+/*
+{
+  indent_style: &#x27;space&#x27;,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.parseFromFilesSync" id="apidoc.element.editorconfig.parseFromFilesSync">
+        function <span class="apidocSignatureSpan">editorconfig.</span>parseFromFilesSync
+        <span class="apidocSignatureSpan">(filepath, files, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseFromFilesSync = function (filepath, files, options) {
+  filepath = path.resolve(filepath);
+  options = processOptions(options, filepath);
+  return parseFromFilesSync(filepath, files, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.parseSync" id="apidoc.element.editorconfig.parseSync">
+        function <span class="apidocSignatureSpan">editorconfig.</span>parseSync
+        <span class="apidocSignatureSpan">(filepath, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseSync = function (filepath, options) {
+    filepath = path.resolve(filepath);
+    options = processOptions(options, filepath);
+    var filepaths = getConfigFileNames(filepath, options);
+    var files = readConfigFilesSync(filepaths);
+    return parseFromFilesSync(filepath, files, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.version" id="apidoc.element.editorconfig.version">
+        function <span class="apidocSignatureSpan">editorconfig.</span>version
+        <span class="apidocSignatureSpan">(version)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Version(version) {
+  var args = arguments;
+  this.components = typeof version === &#x22;string&#x22; ?
+    version.split(&#x22;.&#x22;).map(function(x){return parseInt(x, 10);}) :
+    Object.keys(arguments).map(function(k){return args[k];});
+
+  var len = this.components.length;
+  this.major = len ? this.components[0] : 0;
+  this.minor = len &#x3e; 1 ? this.components[1] : 0;
+  this.build = len &#x3e; 2 ? this.components[2] : 0;
+  this.revision = len &#x3e; 3 ? this.components[3] : 0;
+
+  if (typeof version !== &#x22;string&#x22;) {
+    return;
+  }
+
+  var ext = version.split(&#x22;-&#x22;);
+  if (ext.length === 2) {
+    this.configuration = ext[1];
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.editorconfig.fnmatch" id="apidoc.module.editorconfig.fnmatch">module editorconfig.fnmatch</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.fnmatch.fnmatch" id="apidoc.element.editorconfig.fnmatch.fnmatch">
+        function <span class="apidocSignatureSpan">editorconfig.</span>fnmatch
+        <span class="apidocSignatureSpan">(p, pattern, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function minimatch(p, pattern, options) {
+  if (typeof pattern !== &#x22;string&#x22;) {
+    throw new TypeError(&#x22;glob pattern string required&#x22;)
+  }
+
+  if (!options) options = {}
+
+      // shortcut: comments match nothing.
+  if (!options.nocomment &#x26;&#x26; pattern.charAt(0) === &#x22;#&#x22;) {
+    return false
+  }
+
+  // &#x22;&#x22; only matches &#x22;&#x22;
+  if (pattern.trim() === &#x22;&#x22;) return p === &#x22;&#x22;
+
+  return new Minimatch(pattern, options).match(p)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.fnmatch.Minimatch" id="apidoc.element.editorconfig.fnmatch.Minimatch">
+        function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>Minimatch
+        <span class="apidocSignatureSpan">(pattern, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Minimatch(pattern, options) {
+  if (!(this instanceof Minimatch)) {
+    return new Minimatch(pattern, options, cache)
+  }
+
+  if (typeof pattern !== &#x22;string&#x22;) {
+    throw new TypeError(&#x22;glob pattern string required&#x22;)
+  }
+
+  if (!options) options = {}
+
+      // windows: need to use /, not \
+      // On other platforms, \ is a valid (albeit bad) filename char.
+  if (platform === &#x22;win32&#x22;) {
+    pattern = pattern.split(&#x22;\\&#x22;).join(&#x22;/&#x22;)
+  }
+
+  // lru storage.
+  // these things aren&#x27;t particularly big, but walking down the string
+  // and turning it into a regexp can get pretty costly.
+  var cacheKey = pattern + &#x22;\n&#x22; + sigmund(options)
+  var cached = minimatch.cache.get(cacheKey)
+  if (cached) return cached
+  minimatch.cache.set(cacheKey, this)
+
+  this.options = options
+  this.set = []
+  this.pattern = pattern
+  this.regexp = null
+  this.negate = false
+  this.comment = false
+  this.empty = false
+
+    // make the set of regexps etc.
+  this.make()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var orig = minimatch
+
+  var m = function minimatch (p, pattern, options) {
+    return orig.minimatch(p, pattern, ext(def, options))
+  }
+
+  m.Minimatch = function Minimatch (pattern, options) {
+    return new orig.<span class="apidocCodeKeywordSpan">Minimatch</span>(pattern, ext(def, options))
+  }
+
+  return m
+}
+
+Minimatch.defaults = function (def) {
+  if (!def || !Object.keys(def).length) return Minimatch
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.fnmatch.braceExpand" id="apidoc.element.editorconfig.fnmatch.braceExpand">
+        function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>braceExpand
+        <span class="apidocSignatureSpan">(pattern, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">braceExpand = function (pattern, options) {
+  return new Minimatch(pattern, options).braceExpand()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+      return
+    }
+
+    // step 1: figure out negation, etc.
+    this.parseNegate()
+
+      // step 2: expand braces
+    var set = this.globSet = this.<span class="apidocCodeKeywordSpan">braceExpand</span>()
+
+    if (options.debug) console.error(this.pattern, set)
+
+// step 3: now we have a set, so turn each one into a series of path-portion
+// matching patterns.
+// These will be regexps, except in the case of &#x22;**&#x22;, which is
+// set to the GLOBSTAR object for globstar behavior,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.fnmatch.defaults" id="apidoc.element.editorconfig.fnmatch.defaults">
+        function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>defaults
+        <span class="apidocSignatureSpan">(def)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">defaults = function (def) {
+  if (!def || !Object.keys(def).length) return minimatch
+
+  var orig = minimatch
+
+  var m = function minimatch (p, pattern, options) {
+    return orig.minimatch(p, pattern, ext(def, options))
+  }
+
+  m.Minimatch = function Minimatch (pattern, options) {
+    return new orig.Minimatch(pattern, ext(def, options))
+  }
+
+  return m
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+
+  return m
+}
+
+Minimatch.defaults = function (def) {
+  if (!def || !Object.keys(def).length) return Minimatch
+  return minimatch.<span class="apidocCodeKeywordSpan">defaults</span>(def).Minimatch
+}
+
+
+function minimatch (p, pattern, options) {
+  if (typeof pattern !== &#x22;string&#x22;) {
+    throw new TypeError(&#x22;glob pattern string required&#x22;)
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.fnmatch.filter" id="apidoc.element.editorconfig.fnmatch.filter">
+        function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>filter
+        <span class="apidocSignatureSpan">(pattern, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function filter(pattern, options) {
+  options = options || {}
+  return function (p, i, list) {
+    return minimatch(p, pattern, options)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  set = set.map(function (s, si, set) {
+    return s.map(this.parse, this)
+  }, this)
+
+  if (options.debug) console.error(this.pattern, set)
+
+      // filter out everything that didn&#x27;t compile properly.
+  set = set.<span class="apidocCodeKeywordSpan">filter</span>(function (s) {
+    return -1 === s.indexOf(false)
+  })
+
+  if (options.debug) console.error(this.pattern, set)
+
+  this.set = set
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.fnmatch.makeRe" id="apidoc.element.editorconfig.fnmatch.makeRe">
+        function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>makeRe
+        <span class="apidocSignatureSpan">(pattern, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">makeRe = function (pattern, options) {
+  return new Minimatch(pattern, options || {}).makeRe()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    regExp._glob = pattern
+    regExp._src = re
+
+    return regExp
+  }
+
+  minimatch.makeRe = function (pattern, options) {
+    return new Minimatch(pattern, options || {}).<span class="apidocCodeKeywordSpan">makeRe</span>()
+  }
+
+  Minimatch.prototype.makeRe = makeRe
+  function makeRe () {
+    if (this.regexp || this.regexp === false) return this.regexp
+
+// at this point, this.set is a 2d array of partial
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.fnmatch.match" id="apidoc.element.editorconfig.fnmatch.match">
+        function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>match
+        <span class="apidocSignatureSpan">(list, pattern, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">match = function (list, pattern, options) {
+  var mm = new Minimatch(pattern, options)
+  list = list.filter(function (f) {
+    return mm.match(f)
+  })
+  if (options.nonull &#x26;&#x26; !list.length) {
+    list.push(pattern)
+  }
+  return list
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function getFilepathRoot(filepath) {
+if (path.parse !== undefined) {
+  // Node.js &#x3e;= 0.11.15
+  return path.parse(filepath).root;
+}
+if (os.platform() === &#x27;win32&#x27;) {
+  return path.resolve(filepath).<span class="apidocCodeKeywordSpan">match</span>(/^(\\\\[^\\]+\\)?[^\\]+\\/)[0];
+}
+return &#x27;/&#x27;;
+}
+
+function processMatches(matches, version) {
+// Set indent_size to &#x22;tab&#x22; if indent_size is unspecified and
+// indent_style is set to &#x22;tab&#x22;.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.fnmatch.monkeyPatch" id="apidoc.element.editorconfig.fnmatch.monkeyPatch">
+        function <span class="apidocSignatureSpan">editorconfig.fnmatch.</span>monkeyPatch
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function monkeyPatch() {
+  var desc = Object.getOwnPropertyDescriptor(String.prototype, &#x22;match&#x22;)
+  var orig = desc.value
+  desc.value = function (p) {
+    if (p instanceof Minimatch) return p.match(this)
+    return orig.call(this, p)
+  }
+  Object.defineProperty(String.prototype, desc)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.editorconfig.ini" id="apidoc.module.editorconfig.ini">module editorconfig.ini</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.ini.parse" id="apidoc.element.editorconfig.ini.parse">
+        function <span class="apidocSignatureSpan">editorconfig.ini.</span>parse
+        <span class="apidocSignatureSpan">(file, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parse = function (file, callback) {
+  if (!callback) {
+    return;
+  }
+  fs.readFile(file, &#x27;utf8&#x27;, function (err, data) {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, parse(data));
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Example:
+
+```js
+var editorconfig = require(&#x27;editorconfig&#x27;);
+var path = require(&#x27;path&#x27;);
+var filePath = path.join(__dirname, &#x27;/sample.js&#x27;);
+var promise = editorconfig.<span class="apidocCodeKeywordSpan">parse</span>(filePath);
+promise.then(function onFulfilled(result) {
+console.log(result);
+});
+
+/*
+{
+  indent_style: &#x27;space&#x27;,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.ini.parseString" id="apidoc.element.editorconfig.ini.parseString">
+        function <span class="apidocSignatureSpan">editorconfig.ini.</span>parseString
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parse(data) {
+  var sectionBody = {};
+  var sectionName = null;
+  var value = [[sectionName, sectionBody]];
+  var lines = data.split(/\r\n|\r|\n/);
+  lines.forEach(function (line) {
+    var match;
+    if (regex.comment.test(line)) {
+      return;
+    } else if (regex.param.test(line)) {
+      match = line.match(regex.param);
+      sectionBody[match[1]] = match[2];
+    } else if (regex.section.test(line)) {
+      match = line.match(regex.section);
+      sectionName = match[1];
+      sectionBody = {};
+      value.push([sectionName, sectionBody]);
+    }
+  });
+  return value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.array = array;
+}
+
+StopReduce.prototype = Object.create(Error.prototype);
+
+function getConfigsForFiles(files) {
+return Promise.reduce(files, function (configs, file) {
+  var contents = iniparser.<span class="apidocCodeKeywordSpan">parseString</span>(file.contents);
+  configs.push({
+    name: file.name,
+    contents: contents
+  });
+  if ((contents[0][1].root || &#x27;&#x27;).toLowerCase() === &#x27;true&#x27;) {
+    return Promise.reject(new StopReduce(configs));
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.ini.parseSync" id="apidoc.element.editorconfig.ini.parseSync">
+        function <span class="apidocSignatureSpan">editorconfig.ini.</span>parseSync
+        <span class="apidocSignatureSpan">(file)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">parseSync = function (file) {
+  return parse(fs.readFileSync(file, &#x27;utf8&#x27;));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.editorconfig.version" id="apidoc.module.editorconfig.version">module editorconfig.version</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.version.version" id="apidoc.element.editorconfig.version.version">
+        function <span class="apidocSignatureSpan">editorconfig.</span>version
+        <span class="apidocSignatureSpan">(version)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Version(version) {
+  var args = arguments;
+  this.components = typeof version === &#x22;string&#x22; ?
+    version.split(&#x22;.&#x22;).map(function(x){return parseInt(x, 10);}) :
+    Object.keys(arguments).map(function(k){return args[k];});
+
+  var len = this.components.length;
+  this.major = len ? this.components[0] : 0;
+  this.minor = len &#x3e; 1 ? this.components[1] : 0;
+  this.build = len &#x3e; 2 ? this.components[2] : 0;
+  this.revision = len &#x3e; 3 ? this.components[3] : 0;
+
+  if (typeof version !== &#x22;string&#x22;) {
+    return;
+  }
+
+  var ext = version.split(&#x22;-&#x22;);
+  if (ext.length === 2) {
+    this.configuration = ext[1];
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.editorconfig.version.prototype" id="apidoc.module.editorconfig.version.prototype">module editorconfig.version.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.version.prototype.gte" id="apidoc.element.editorconfig.version.prototype.gte">
+        function <span class="apidocSignatureSpan">editorconfig.version.prototype.</span>gte
+        <span class="apidocSignatureSpan">(other)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gte = function (other){
+  if (this.major &#x3c; other.major) {
+    return false;
+  }
+  if (this.minor &#x3c; other.minor) {
+    return false;
+  }
+  if (this.build &#x3c; other.build) {
+    return false;
+  }
+  if (this.revision &#x3c; other.revision) {
+    return false;
+  }
+  return true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+return &#x27;/&#x27;;
+}
+
+function processMatches(matches, version) {
+// Set indent_size to &#x22;tab&#x22; if indent_size is unspecified and
+// indent_style is set to &#x22;tab&#x22;.
+if (&#x22;indent_style&#x22; in matches &#x26;&#x26; matches.indent_style === &#x22;tab&#x22; &#x26;&#x26;
+  !(&#x22;indent_size&#x22; in matches) &#x26;&#x26; version.<span class="apidocCodeKeywordSpan">gte</span>(new Version(0, 10))) {
+  matches.indent_size = &#x22;tab&#x22;;
+}
+
+// Set tab_width to indent_size if indent_size is specified and
+// tab_width is unspecified
+if (&#x22;indent_size&#x22; in matches &#x26;&#x26; !(&#x22;tab_width&#x22; in matches) &#x26;&#x26;
+matches.indent_size !== &#x22;tab&#x22;)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.editorconfig.version.prototype.toString" id="apidoc.element.editorconfig.version.prototype.toString">
+        function <span class="apidocSignatureSpan">editorconfig.version.prototype.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+  var version = this.components.join(&#x22;.&#x22;);
+  if (typeof this.configuration !== &#x22;undefined&#x22;) {
+    version += &#x22;-&#x22; + this.configuration;
+  }
+  return version;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
